@@ -90,6 +90,13 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      .bd-placeholder-img {
+        object-fit: cover; /* keeps aspect ratio but fills circle */
+      }
+      .rounded-circle {
+        aspect-ratio: 1 / 1; /* ensures perfect circle even if image dimensions differ */
+        overflow: hidden;
+      }
     </style>
   </head>
   <body>
@@ -188,8 +195,8 @@
         </li>
       </ul>
     </div>
-    <header data-bs-theme="dark">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-md fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand">The Black Squirrel Cafe | </a>
           <button
@@ -333,8 +340,8 @@
               ></rect>
             </svg>
             <div class="container">
-              <div class="carousel-caption text-end">
-                <h1>Now hiring.</h1>
+              <div class="carousel-caption text-start">
+                <h1>Now hiring!</h1>
                 <p>
                   Visit us in person to apply!
                 </p>
@@ -371,22 +378,14 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-4">
-            <svg
-              aria-label="Placeholder"
-              class="bd-placeholder-img rounded-circle"
-              height="140"
-              preserveAspectRatio="xMidYMid slice"
-              role="img"
-              width="140"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Placeholder</title>
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
-            </svg>
+            <img
+                src="images/appleTea.png"
+                alt="Apple Tea"
+                class="bd-placeholder-img rounded-circle"
+                width="140"
+                height="140"
+                loading="lazy"
+              />
             <h2 class="fw-normal">Apple Tea</h2>
             <p>
               Now available through 1/1
@@ -397,22 +396,14 @@
           </div>
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <svg
-              aria-label="Placeholder"
-              class="bd-placeholder-img rounded-circle"
-              height="140"
-              preserveAspectRatio="xMidYMid slice"
-              role="img"
-              width="140"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Placeholder</title>
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
-            </svg>
+            <img
+                src="images/pumpkinSpiceLatte.png"
+                alt="Apple Tea"
+                class="bd-placeholder-img rounded-circle"
+                width="140"
+                height="140"
+                loading="lazy"
+              />
             <h2 class="fw-normal">Pumpkin Spice Latte</h2>
             <p>
               Now available through 11/29
@@ -423,22 +414,14 @@
           </div>
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <svg
-              aria-label="Placeholder"
-              class="bd-placeholder-img rounded-circle"
-              height="140"
-              preserveAspectRatio="xMidYMid slice"
-              role="img"
-              width="140"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Placeholder</title>
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
-            </svg>
+            <img
+                src="images/pumpkinDoughnut.png"
+                alt="Apple Tea"
+                class="bd-placeholder-img rounded-circle"
+                width="140"
+                height="140"
+                loading="lazy"
+              />
             <h2 class="fw-normal">Pumpkin Doughnut</h2>
             <p>
               Now available through 11/29

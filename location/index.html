@@ -22,284 +22,275 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+      /* ============================================
+         BLACK SQUIRREL CAFE - MODULAR STYLE SYSTEM
+         Easy to copy to other pages
+         ============================================ */
+      
+      /* === 1. GLOBAL RESET === */
+      * {
+        border-radius: 0;
+        border-width: 2px;
       }
       
-      /* Location-specific styles */
+      /* === 2. COLOR SYSTEM === */
+      :root {
+        /* Brand Colors */
+        --dark-green: #405229;
+        --pistachio: #7A9951;
+        --light-pistachio: #f0fce1;
+        --pistachio-shadow: rgba(122, 153, 81, 0.2);
+        --cream: #FEFAE0;
+        --white: #FCFCFA;
+        --ash-gray: #575757;
+        --dark-gray: #333333;
+        --caramel: #FFD66E;
+        --caramel-light: rgba(255, 214, 110, 0.1);
+        --cherry: #E84B3C;
+        
+        /* Design Tokens */
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 2px 8px var(--pistachio-shadow);
+        --transition: all 0.3s ease;
+        
+        /* Bootstrap Overrides */
+        --bs-primary: var(--pistachio);
+        --bs-secondary: var(--dark-green);
+        --bs-success: var(--pistachio);
+        --bs-body-bg: var(--white);
+        --bs-body-color: var(--dark-gray);
+      }
+      
+      /* === 3. TYPOGRAPHY === */
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--dark-gray);
+      }
+      
+      /* === 4. HEADER & FOOTER === */
+      header[data-bs-theme="dark"],
+      footer[data-bs-theme="dark"] {
+        background-color: var(--dark-gray) !important;
+      }
+      
+      header[data-bs-theme="dark"] .navbar-brand,
+      header[data-bs-theme="dark"] .nav-link,
+      footer[data-bs-theme="dark"],
+      footer[data-bs-theme="dark"] p {
+        color: var(--white) !important;
+      }
+      
+      header[data-bs-theme="dark"] .nav-link {
+        transition: var(--transition);
+      }
+      
+      header[data-bs-theme="dark"] .nav-link:hover,
+      footer[data-bs-theme="dark"] a {
+        color: var(--pistachio) !important;
+      }
+      
+      footer[data-bs-theme="dark"] a.text-light {
+        color: var(--white) !important;
+      }
+      
+      header[data-bs-theme="dark"] .nav-link.active {
+        background-color: var(--pistachio);
+        border: 2px solid var(--dark-green);
+        color: var(--white) !important;
+        border-radius: var(--radius-md);
+        padding: 0.5rem 1rem !important;
+      }
+      
+      /* === 5. BUTTONS === */
+      .btn {
+        border-radius: var(--radius-md);
+        border-width: 2px;
+        transition: var(--transition);
+      }
+      
+      /* Primary/Success Buttons */
+      .btn-primary,
+      .btn-success {
+        background-color: var(--pistachio) !important;
+        border-color: var(--dark-green) !important;
+        color: var(--white) !important;
+      }
+      
+      .btn-primary:hover,
+      .btn-success:hover {
+        background-color: var(--light-pistachio) !important;
+        border-color: var(--pistachio) !important;
+        color: var(--dark-gray) !important;
+      }
+      
+      /* Secondary/Outline Buttons */
+      .btn-outline-secondary,
+      .btn:not(.btn-primary):not(.btn-success):not(.btn-close) {
+        background-color: var(--white) !important;
+        border-color: var(--dark-gray) !important;
+        color: var(--dark-gray) !important;
+      }
+      
+      .btn-outline-secondary:hover,
+      .btn:not(.btn-primary):not(.btn-success):not(.btn-close):hover {
+        border-color: var(--caramel) !important;
+        background-color: var(--cream) !important;
+        box-shadow: var(--shadow-md);
+      }
+      
+      /* === 6. FORMS === */
+      .form-control {
+        border-radius: var(--radius-md);
+      }
+      
+      .input-group .form-control {
+        border-radius: var(--radius-md) 0 0 var(--radius-md);
+      }
+      
+      .input-group .btn {
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      }
+      
+      /* === 7. INTERACTIVE CARDS === */
+      .interactive-card {
+        border: 2px solid var(--ash-gray);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        background-color: var(--white);
+        color: var(--dark-gray);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+      
+      .interactive-card:hover {
+        border-color: var(--caramel);
+        background-color: var(--cream);
+        box-shadow: var(--shadow-md);
+      }
+      
+      .interactive-card.selected {
+        border-color: var(--dark-green);
+        background-color: var(--light-pistachio);
+        box-shadow: var(--shadow-md);
+      }
+      
+      /* === 8. ALERTS & NOTIFICATIONS === */
+      .alert-warning-custom {
+        border-left: 4px solid var(--caramel);
+        background-color: var(--caramel-light);
+        color: var(--dark-gray);
+        padding: 0.75rem;
+        border-radius: var(--radius-sm);
+        margin-bottom: 1rem;
+      }
+      
+      .status-good {
+        color: var(--pistachio);
+        font-weight: 600;
+      }
+      
+      .status-warning {
+        color: var(--cherry);
+        font-weight: 600;
+      }
+      
+      /* === 9. MODALS === */
+      .modal-content {
+        border-radius: var(--radius-md);
+      }
+      
+      /* === 10. PAGE-SPECIFIC STYLES === */
+      
+      /* Location Cards */
+      .location-card {
+        margin-bottom: 1rem;
+      }
+      
+      /* Service Options */
+      .service-option {
+        padding: 1.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      
+      /* Location Info Container */
+      .location-info {
+        border: 2px solid var(--ash-gray);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        background-color: var(--white);
+        box-shadow: var(--shadow-sm);
+      }
+      
+      /* Map */
       #map {
         height: 400px;
         width: 100%;
-        border: 2px solid #dee2e6;
-        border-radius: 8px;
+        border: 2px solid var(--ash-gray);
+        border-radius: var(--radius-md);
         z-index: 1;
       }
       
-      .location-card {
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 1rem;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
+      /* Confirm Button Visibility */
+      #confirmLocationBtn {
+        display: none;
       }
       
-      .location-card:hover {
-        border-color: #0d6efd;
-        box-shadow: 0 2px 8px rgba(13, 110, 253, 0.15);
+      #confirmLocationBtn.visible {
+        display: inline-block;
       }
       
-      .location-card.selected {
-        border-color: #0d6efd;
-        background-color: rgba(13, 110, 253, 0.05);
-      }
-      
-      .warning-alert {
-        border-left: 4px solid #ffc107;
-        background-color: #fff3cd;
-        color: #000;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-      }
-      
-      .service-option {
-        border: 2px solid #dee2e6;
-        border-radius: 8px;
-        padding: 1.5rem;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-bottom: 1rem;
-      }
-      
-      .service-option:hover {
-        border-color: #0d6efd;
-        background-color: rgba(13, 110, 253, 0.05);
-      }
-      
-      .service-option.selected {
-        border-color: #0d6efd;
-        background-color: #0d6efd;
-        color: white;
-      }
-      
-      /* Custom marker styles for Leaflet */
-      .cafe-marker {
-        background-color: #8B4513;
-        border: 3px solid #fff;
+      /* === 11. LEAFLET MAP MARKERS === */
+      .cafe-marker,
+      .cafe-marker-selected,
+      .user-marker {
+        border: 2px solid var(--dark-gray);
         border-radius: 50%;
-        width: 30px;
-        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: var(--shadow-sm);
+      }
+      
+      .cafe-marker {
+        background-color: var(--white);
+        width: 30px;
+        height: 30px;
         font-size: 16px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         cursor: pointer;
       }
       
       .cafe-marker-selected {
-        background-color: #0d6efd;
-        border: 3px solid #fff;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        background-color: var(--light-pistachio);
+        border-color: var(--dark-green);
+        box-shadow: var(--shadow-md);
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
         cursor: pointer;
       }
       
       .user-marker {
-        background-color: #28a745;
-        border: 3px solid #fff;
-        border-radius: 50%;
+        background-color: var(--white);
+        border-color: var(--cherry);
         width: 25px;
         height: 25px;
+        font-size: 14px;
+      }
+      
+      /* === 12. UTILITIES === */
+      .navbar-icon {
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       }
-      
-      .location-info {
-        background: var(--bs-body-bg);
-        color: var(--bs-body-color);
-        border: 1px solid var(--bs-border-color);
-        border-radius: 8px;
-        padding: 1rem;
-        box-shadow: 0 2px 4px var(--bs-box-shadow);
-      }
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: #0000001a;
-        border: solid rgba(0, 0, 0, 0.15);
-        border-width: 1px 0;
-        box-shadow:
-          inset 0 0.5em 1.5em #0000001a,
-          inset 0 0.125em 0.5em #00000026;
-      }
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
-      }
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-      .bd-mode-toggle .bi {
-        width: 1em;
-        height: 1em;
-      }
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
+
     </style>
   </head>
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path
-          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
-        ></path>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path
-          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
-        ></path>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path
-          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
-        ></path>
-        <path
-          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
-        ></path>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path
-          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-        ></path>
-      </symbol>
-    </svg>
-    <div
-      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
-    >
-      <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-      >
-        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="dark"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="auto"
-            aria-pressed="true"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
     <header data-bs-theme="dark">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
@@ -323,12 +314,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="../dropdowns/menu.html">Menu</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="../checkout/index.html">Checkout</a></li>
+                <a class="nav-link" href="../checkout/index.html">Checkout</a>
               <li class="nav-item">
                 <a class="nav-link" href="../carousel/rewards.html">Promotions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../carousel/events.html">Events</a>
+                <a class="nav-link" href="../events/index.html">Events</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../about/index.html">About Us</a>
@@ -337,34 +328,32 @@
                 <a class="nav-link active" aria-current="page" href="#">Location</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <svg class="navbar-icon ms-auto" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet" fill="#FCFCFA">
+              <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)">
+                <path d="M5885 7604 c-252 -45 -442 -136 -606 -291 -128 -121 -233 -293 -281 -458 -20 -71 -23 -102 -22 -265 0 -180 1 -187 31 -277 46 -138 120 -262 293 -491 192 -255 231 -316 329 -512 106 -215 173 -424 206 -651 21 -138 16 -439 -9 -559 -19 -93 -57 -226 -91 -316 -103 -274 -352 -565 -582 -683 -48 -24 -49 -21 -29 37 8 22 22 101 32 174 35 274 -3 524 -117 765 -89 187 -254 392 -401 496 -82 59 -210 119 -303 143 -101 26 -294 24 -396 -4 -235 -63 -401 -229 -465 -462 -27 -97 -24 -326 5 -435 26 -96 75 -204 137 -297 84 -126 325 -362 467 -456 37 -25 67 -49 67 -53 0 -5 -187 -9 -415 -9 -393 0 -417 -1 -469 -20 -105 -40 -178 -140 -180 -245 l-1 -60 425 -5 425 -5 115 -42 c454 -165 973 -197 1411 -87 670 167 1188 632 1435 1287 49 129 83 261 111 425 25 148 25 522 0 667 -63 360 -201 701 -457 1125 -201 333 -241 476 -190 674 26 103 63 168 135 241 143 143 363 199 575 146 41 -11 76 -18 78 -16 9 8 -128 150 -207 215 -258 212 -555 321 -866 319 -60 0 -146 -7 -190 -15z"/>
+                <path d="M4590 7469 c-249 -65 -468 -262 -561 -505 l-24 -62 -63 -6 c-324 -34 -584 -187 -751 -446 -34 -52 -109 -189 -168 -304 l-105 -209 86 -83 c47 -46 107 -94 133 -107 320 -161 730 -38 936 280 24 38 60 102 79 143 61 126 138 146 200 53 25 -39 22 -95 -11 -191 -105 -302 -386 -557 -711 -647 -85 -24 -120 -28 -340 -35 -279 -8 -305 -15 -383 -93 -51 -51 -77 -116 -77 -194 l0 -53 226 0 c202 0 233 -2 296 -21 61 -19 86 -21 197 -16 69 3 180 15 246 27 242 44 486 36 674 -22 275 -85 534 -292 715 -571 80 -122 131 -236 191 -422 l52 -160 21 41 c11 22 32 81 46 130 78 272 83 555 16 819 -89 354 -243 615 -600 1020 -191 218 -253 303 -325 450 -77 157 -106 269 -113 436 -8 201 43 427 126 567 39 65 55 84 131 165 l35 37 -49 -1 c-28 0 -84 -9 -125 -20z m-710 -994 c0 -109 -62 -216 -156 -267 -64 -34 -158 -52 -229 -43 l-55 6 6 42 c19 135 80 234 177 283 52 27 77 32 170 33 l87 1 0 -55z"/>
+              </g>
+            </svg>
           </div>
         </div>
       </nav>
     </header>
     <main>
       <div class="container marketing" style="padding-top: 80px;">
-        <!-- About Us Section -->
+        <!-- Page Header -->
+        <p class="lead mb-5"></p></p>
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
             <h1 class="display-4 fw-bold mb-4">Find Your Black Squirrel Cafe</h1>
             <p class="lead mb-5">Search for nearby locations and choose how you'd like to order</p>
           </div>
         </div>
-        
         <hr class="featurette-divider" />
         
+        
+        
         <!-- Search Section -->
+        <p class="lead mb-5"></p></p>
         <div class="row mb-4">
           <div class="col-md-8 mx-auto">
             <div class="input-group">
@@ -406,7 +395,7 @@
               <div id="searchResults" style="display: none;">
                 <h5 class="mb-3">Nearby Locations</h5>
                 
-                <div class="location-card" data-location="1" onclick="selectLocation(1)">
+                <div class="location-card interactive-card" data-location="1" onclick="selectLocation(1)">
                   <div class="d-flex justify-content-between align-items-start">
                     <div>
                       <h6 class="mb-1">Black Squirrel Cafe Downtown</h6>
@@ -419,7 +408,7 @@
                   </div>
                 </div>
                 
-                <div class="location-card" data-location="2" onclick="selectLocation(2)">
+                <div class="location-card interactive-card" data-location="2" onclick="selectLocation(2)">
                   <div class="d-flex justify-content-between align-items-start">
                     <div>
                       <h6 class="mb-1">Black Squirrel Cafe University</h6>
@@ -432,7 +421,7 @@
                   </div>
                 </div>
                 
-                <div class="location-card" data-location="3" onclick="selectLocation(3)">
+                <div class="location-card interactive-card" data-location="3" onclick="selectLocation(3)">
                   <div class="d-flex justify-content-between align-items-start">
                     <div>
                       <h6 class="mb-1">Black Squirrel Cafe Stow</h6>
@@ -451,6 +440,7 @@
       </div>
       
       <!-- Location Confirmation Section -->
+      <p class="lead mb-5"></p></p>
       <div id="locationConfirmation" class="container mt-5" style="display: none;">
         <div class="row justify-content-center">
           <div class="col-lg-8">
@@ -466,16 +456,16 @@
                   </div>
                   
                   <div class="mb-3">
-                    <p class="mb-1"><strong>Estimated Wait Time:</strong> <span id="selectedWaitTime" class="text-warning">8 minutes</span></p>
+                    <p class="mb-1"><strong>Estimated Wait Time:</strong> <span id="selectedWaitTime">8 minutes</span></p>
                     <p class="mb-0"><strong>Distance:</strong> <span id="selectedDistance">0.5 miles</span></p>
                   </div>
                 </div>
                 <div class="col-md-4 text-end">
                   <button class="btn btn-outline-primary btn-sm mb-2" onclick="getDirections()">
-                    📍 Get Directions
+                    Get Directions
                   </button>
-                  <button class="btn btn-outline-secondary btn-sm" onclick="changeLocation()">
-                    🔄 Change Location
+                  <button class="btn btn-outline-secondary btn-sm mb-2" onclick="changeLocation()">
+                    Change Location
                   </button>
                 </div>
               </div>
@@ -483,25 +473,16 @@
             
             <!-- Service Selection -->
             <div class="mt-4">
-              <h5 class="mb-3">How would you like to order?</h5>
-              <div class="row">
+              <h5 class="mb-3 text-center">How would you like to order?</h5>
+              <div class="row justify-content-center">
                 <div class="col-md-4">
-                  <div class="service-option" data-service="drive-thru" onclick="selectService('drive-thru')">
-                    <div class="mb-2">🚗</div>
+                  <div class="service-option interactive-card" data-service="drive-thru" onclick="selectService('drive-thru')">
                     <h6>Drive Thru</h6>
                     <p class="small text-muted mb-0">Stay in your car</p>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="service-option" data-service="delivery" onclick="selectService('delivery')">
-                    <div class="mb-2">🚚</div>
-                    <h6>Delivery</h6>
-                    <p class="small text-muted mb-0">We'll bring it to you</p>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="service-option" data-service="pickup" onclick="selectService('pickup')">
-                    <div class="mb-2">🏃‍♂️</div>
+                  <div class="service-option interactive-card" data-service="pickup" onclick="selectService('pickup')">
                     <h6>Pick-up</h6>
                     <p class="small text-muted mb-0">Order ahead, pick up fast</p>
                   </div>
@@ -514,8 +495,7 @@
               <button 
                 id="confirmLocationBtn" 
                 class="btn btn-primary btn-lg px-5" 
-                onclick="confirmLocation()" 
-                disabled
+                onclick="confirmLocation()"
               >
                 Confirm Location & Continue
               </button>
@@ -523,6 +503,7 @@
           </div>
         </div>
       </div>
+      <p class="lead mb-5"></p></p>
       
       <!-- Confirmation Modal -->
       <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
@@ -534,7 +515,6 @@
             </div>
             <div class="modal-body">
               <div class="text-center">
-                <div class="mb-3">✅</div>
                 <h6>Location & Service Confirmed</h6>
                 <p class="mb-1"><strong>Location:</strong> <span id="modalLocationName"></span></p>
                 <p class="mb-1"><strong>Service:</strong> <span id="modalServiceType"></span></p>
@@ -549,7 +529,6 @@
           </div>
         </div>
       </div>
-      <!-- /.container -->
       
       <div class="container">
         <hr class="featurette-divider" />
@@ -559,19 +538,13 @@
       <footer class="bg-dark text-light mt-5 pt-4 pb-3" data-bs-theme="dark">
         <div class="container">
           <p class="float-end"><a href="#" class="text-light">Back to top</a></p>
-          <p>
-            &copy; 2017–2025 Company, Inc. &middot;
-            <a href="#" class="text-light">Privacy</a> &middot; <a href="#" class="text-light">Terms</a>
-          </p>
+          <p>&copy; 2025 Black Squirrel Coffee</p>
         </div>
       </footer>
-
-
     </main>
-    <script
-      src="../assets/dist/js/bootstrap.bundle.min.js"
-      class="astro-vvvwv3sm"
-    ></script>
+    
+    <!-- Scripts -->
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -579,6 +552,10 @@
      crossorigin=""></script>
     
     <script>
+      /* ==========================================
+         LOCATION FINDER - JAVASCRIPT
+         ========================================== */
+      
       // Location data with real coordinates around Kent, Ohio
       const locations = {
         1: {
@@ -658,8 +635,10 @@
           .bindPopup('Your Location (Kent, OH)')
           .openPopup();
         
-        // Calculate initial distances
-        updateDistances();
+        // Close popup after 2 seconds
+        setTimeout(() => {
+          userMarker.closePopup();
+        }, 2000);
         
         // Add cafe markers
         Object.keys(locations).forEach(locationId => {
@@ -821,13 +800,12 @@
         
         filteredLocations.forEach(location => {
           const locationCard = document.createElement('div');
-          locationCard.className = 'location-card';
+          locationCard.className = 'location-card interactive-card';
           locationCard.setAttribute('data-location', location.id);
           locationCard.setAttribute('onclick', `selectLocation(${location.id})`);
           
-          let waitTimeClass = 'text-success';
-          if (location.waitTimeValue > 5) waitTimeClass = 'text-danger';
-          else if (location.waitTimeValue > 3) waitTimeClass = 'text-warning';
+          let waitTimeClass = 'status-good';
+          if (location.waitTimeValue > 5) waitTimeClass = 'status-warning';
           
           locationCard.innerHTML = `
             <div class="d-flex justify-content-between align-items-start">
@@ -911,14 +889,14 @@
         // Set selected marker to blue
         selectedMarker = cafeMarkers[locationId];
         if (selectedMarker) {
-          // Create blue icon for selected marker
-          const blueIcon = L.divIcon({
+          // Create bigger icon for selected marker
+          const selectedIcon = L.divIcon({
             className: 'cafe-marker-selected',
             html: '☕',
-            iconSize: [30, 30],
-            iconAnchor: [15, 15]
+            iconSize: [40, 40],
+            iconAnchor: [20, 20]
           });
-          selectedMarker.setIcon(blueIcon);
+          selectedMarker.setIcon(selectedIcon);
         }
         
         // Populate location details
@@ -931,11 +909,9 @@
         waitTimeElement.textContent = location.waitTime;
         
         if (location.waitTimeValue > 5) {
-          waitTimeElement.className = 'text-danger';
-        } else if (location.waitTimeValue > 3) {
-          waitTimeElement.className = 'text-warning';
+          waitTimeElement.className = 'status-warning';
         } else {
-          waitTimeElement.className = 'text-success';
+          waitTimeElement.className = 'status-good';
         }
         
         // Show warnings
@@ -949,7 +925,7 @@
         document.querySelectorAll('.service-option').forEach(option => {
           option.classList.remove('selected');
         });
-        document.getElementById('confirmLocationBtn').disabled = true;
+        document.getElementById('confirmLocationBtn').classList.remove('visible');
       }
       
       // Show warnings for selected location
@@ -976,10 +952,10 @@
         if (warnings.length > 0) {
           warnings.forEach(warning => {
             const warningDiv = document.createElement('div');
-            warningDiv.className = 'warning-alert';
+            warningDiv.className = 'alert-warning-custom';
             warningDiv.innerHTML = `
               <div class="d-flex align-items-center">
-                <span class="me-2">⚠️</span>
+                <span class="me-2">Warning: </span>
                 <span>${warning}</span>
               </div>
             `;
@@ -999,7 +975,7 @@
         document.querySelector(`[data-service="${serviceType}"]`).classList.add('selected');
         
         // Enable confirmation button
-        document.getElementById('confirmLocationBtn').disabled = false;
+        document.getElementById('confirmLocationBtn').classList.add('visible');
       }
       
       // Get directions to location

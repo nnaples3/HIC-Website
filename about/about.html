@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,203 +14,14 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/carousel/"
     />
-    <script src="../assets/js/color-modes.js"></script>
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <meta name="theme-color" content="#712cf9" />
-    <style>
-      /* ============================================
-         BLACK SQUIRREL CAFE - MODULAR STYLE SYSTEM
-         Easy to copy to other pages
-         ============================================ */
-      
-      /* === 1. GLOBAL RESET === */
-      * {
-        border-radius: 0;
-        border-width: 2px;
-      }
-      
-      /* === 2. COLOR SYSTEM === */
-      :root {
-        /* Brand Colors */
-        --dark-green: #405229;
-        --pistachio: #7A9951;
-        --light-pistachio: #f0fce1;
-        --pistachio-shadow: rgba(122, 153, 81, 0.2);
-        --cream: #FEFAE0;
-        --white: #FCFCFA;
-        --ash-gray: #575757;
-        --dark-gray: #333333;
-        --caramel: #FFD66E;
-        --caramel-light: rgba(255, 214, 110, 0.1);
-        --cherry: #E84B3C;
-        
-        /* Design Tokens */
-        --radius-sm: 4px;
-        --radius-md: 8px;
-        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-        --shadow-md: 0 2px 8px var(--pistachio-shadow);
-        --transition: all 0.3s ease;
-        
-        /* Bootstrap Overrides */
-        --bs-primary: var(--pistachio);
-        --bs-secondary: var(--dark-green);
-        --bs-success: var(--pistachio);
-        --bs-body-bg: var(--white);
-        --bs-body-color: var(--dark-gray);
-      }
-      
-      /* === 3. TYPOGRAPHY === */
-      h1, h2, h3, h4, h5, h6 {
-        color: var(--dark-gray);
-      }
-      
-      /* === 4. HEADER & FOOTER === */
-      header[data-bs-theme="dark"],
-      footer[data-bs-theme="dark"] {
-        background-color: var(--dark-gray) !important;
-      }
-      
-      header[data-bs-theme="dark"] .navbar-brand,
-      header[data-bs-theme="dark"] .nav-link,
-      footer[data-bs-theme="dark"],
-      footer[data-bs-theme="dark"] p {
-        color: var(--white) !important;
-      }
-      
-      header[data-bs-theme="dark"] .nav-link {
-        transition: var(--transition);
-      }
-      
-      header[data-bs-theme="dark"] .nav-link:hover,
-      footer[data-bs-theme="dark"] a {
-        color: var(--pistachio) !important;
-      }
-      
-      footer[data-bs-theme="dark"] a.text-light {
-        color: var(--white) !important;
-      }
-      
-      header[data-bs-theme="dark"] .nav-link.active {
-        background-color: var(--pistachio);
-        border: 2px solid var(--dark-green);
-        color: var(--white) !important;
-        border-radius: var(--radius-md);
-        padding: 0.5rem 1rem !important;
-      }
-      
-      /* === 5. BUTTONS === */
-      .btn {
-        border-radius: var(--radius-md);
-        border-width: 2px;
-        transition: var(--transition);
-      }
-      
-      /* Primary/Success Buttons */
-      .btn-primary,
-      .btn-success {
-        background-color: var(--pistachio) !important;
-        border-color: var(--dark-green) !important;
-        color: var(--white) !important;
-      }
-      
-      .btn-primary:hover,
-      .btn-success:hover {
-        background-color: var(--light-pistachio) !important;
-        border-color: var(--pistachio) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      /* Secondary/Outline Buttons */
-      .btn-outline-secondary,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close) {
-        background-color: var(--white) !important;
-        border-color: var(--dark-gray) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      .btn-outline-secondary:hover,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close):hover {
-        border-color: var(--caramel) !important;
-        background-color: var(--cream) !important;
-        box-shadow: var(--shadow-md);
-      }
-      
-      /* === 6. FORMS === */
-      .form-control {
-        border-radius: var(--radius-md);
-      }
-      
-      .input-group .form-control {
-        border-radius: var(--radius-md) 0 0 var(--radius-md);
-      }
-      
-      .input-group .btn {
-        border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      }
-      
-      /* === 7. INTERACTIVE CARDS === */
-      .interactive-card {
-        border: 2px solid var(--ash-gray);
-        border-radius: var(--radius-md);
-        padding: 1rem;
-        background-color: var(--white);
-        color: var(--dark-gray);
-        cursor: pointer;
-        transition: var(--transition);
-      }
-      
-      .interactive-card:hover {
-        border-color: var(--caramel);
-        background-color: var(--cream);
-        box-shadow: var(--shadow-md);
-      }
-      
-      .interactive-card.selected {
-        border-color: var(--dark-green);
-        background-color: var(--light-pistachio);
-        box-shadow: var(--shadow-md);
-      }
-      
-      /* === 8. ALERTS & NOTIFICATIONS === */
-      .alert-warning-custom {
-        border-left: 4px solid var(--caramel);
-        background-color: var(--caramel-light);
-        color: var(--dark-gray);
-        padding: 0.75rem;
-        border-radius: var(--radius-sm);
-        margin-bottom: 1rem;
-      }
-      
-      .status-good {
-        color: var(--pistachio);
-        font-weight: 600;
-      }
-      
-      .status-warning {
-        color: var(--cherry);
-        font-weight: 600;
-      }
-      
-      /* === 9. MODALS === */
-      .modal-content {
-        border-radius: var(--radius-md);
-      }
-      
-      /* === 10. PAGE-SPECIFIC STYLES === */
-      
-      /* === 11. UTILITIES === */
-      .navbar-icon {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-    </style>
-  </head>
+    <link href="../assets/css/black-squirrel-theme.css" rel="stylesheet" />
+</head>
   <body>
-    <header data-bs-theme="dark">
+
+<!-- HEADER -->
+    <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand">The Black Squirrel Cafe | </a>
@@ -231,20 +42,20 @@
                 <a class="nav-link" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../dropdowns/menu.html">Menu</a>
+                <a class="nav-link" href="../menu/menu.html">Menu</a>
               </li>
-                <a class="nav-link" href="../checkout/index.html">Checkout</a>
+                <a class="nav-link" href="../checkout/checkout.html">Checkout</a>
               <li class="nav-item">
-                <a class="nav-link" href="../carousel/rewards.html">Promotions</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Events</a>
+                <a class="nav-link" href="../rewards/rewards.html">Promotions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../about/index.html">About Us</a>
+                <a class="nav-link" href="../events/events.html">Events</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../location/index.html">Location</a>
+                <a class="nav-link active" aria-current="page" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../location/location.html">Location</a>
               </li>
             </ul>
             <svg class="navbar-icon ms-auto" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet" fill="#FCFCFA">
@@ -265,8 +76,8 @@
         <p class="lead mb-5"></p></p>
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">
-            <h1 class="display-4 fw-bold mb-4">Events</h1>
-            <p class="lead mb-5">Join us for some community events!</p>
+            <h1 class="display-4 fw-bold mb-4">About The Black Squirrel Cafe</h1>
+            <p class="lead mb-5">Welcome to The Black Squirrel Cafe, Kent's premier destination for exceptional coffee, fresh pastries, and community connection.</p>
           </div>
         </div>
         
@@ -274,22 +85,15 @@
         <hr class="featurette-divider" />
         <p class="lead mb-5"></p></p>
         <div class="row featurette">
-          <div class="col-md-7 order-md-2">
+          <div class="col-md-7">
             <h2 class="featurette-heading fw-normal lh-1">
-              Santa's Little Helpers
+              What We Do
             </h2>
             <p class="lead">
-              <br>
-              Work with elves from Santa's Workshop to decorate Christmas cookies! The best decorated cookie will win a prize!
-              <br>
-              <br>
-              Date: 12/21/25  
-              <br>
-              <br>
-              Time: 5:00pm-7:00pm
-              <br>
-              <br>
-              Location: 1125 Risman Dr, Kent, OH 44242
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
           </div>
           <div class="col-md-5">
@@ -320,20 +124,13 @@
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading fw-normal lh-1">
-              Trivia Night
+              Our Mission
             </h2>
             <p class="lead">
-              <br>
-              event description
-              <br>
-              <br>
-              Date:
-              <br>
-              <br>
-              Time:
-              <br>
-              <br>
-              Location:
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
           </div>
           <div class="col-md-5 order-md-1">
@@ -362,22 +159,15 @@
         <hr class="featurette-divider" />
         <p class="lead mb-5"></p></p>
         <div class="row featurette">
-          <div class="col-md-7 order-md-2">
+          <div class="col-md-7">
             <h2 class="featurette-heading fw-normal lh-1">
-              Event Name
+            Our Staff
             </h2>
             <p class="lead">
-              <br>
-              event description
-              <br>
-              <br>
-              Date:
-              <br>
-              <br>
-              Time:
-              <br>
-              <br>
-              Location:
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
           </div>
           <div class="col-md-5">
@@ -408,14 +198,21 @@
       </div>
       <!-- /.container -->
       
-      <!-- FOOTER -->
-      <footer class="bg-dark text-light mt-5 pt-4 pb-3" data-bs-theme="dark">
+    </main>
+      
+    <!-- FOOTER -->
+      <footer class="text-light mt-5 pt-4 pb-3">
         <div class="container">
           <p class="float-end"><a href="#" class="text-light">Back to top</a></p>
           <p>&copy; 2025 Black Squirrel Coffee</p>
         </div>
-      </footer>
-    </main>
+      </footer>    
+
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
+
+
+
+

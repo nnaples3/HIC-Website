@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,367 +7,15 @@
     <meta name="author" content="Bootstrap contributors" />
     <meta name="generator" content="Hugo 0.112.5" />
     <title>Checkout example · Bootstrap v5.3</title>
-    <script src="../assets/js/color-modes.js"></script>
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="checkout.css" rel="stylesheet" />
-    <style>
-      /* ============================================
-         BLACK SQUIRREL CAFE - MODULAR STYLE SYSTEM
-         Easy to copy to other pages
-         ============================================ */
-      
-      /* === 1. GLOBAL RESET === */
-      * {
-        border-radius: 0;
-        border-width: 2px;
-      }
-      
-      /* === 2. COLOR SYSTEM === */
-      :root {
-        /* Brand Colors */
-        --dark-green: #405229;
-        --pistachio: #7A9951;
-        --light-pistachio: #f0fce1;
-        --pistachio-shadow: rgba(122, 153, 81, 0.2);
-        --cream: #FEFAE0;
-        --white: #FCFCFA;
-        --ash-gray: #575757;
-        --dark-gray: #333333;
-        --caramel: #FFD66E;
-        --caramel-light: rgba(255, 214, 110, 0.1);
-        --cherry: #E84B3C;
-        
-        /* Design Tokens */
-        --radius-sm: 4px;
-        --radius-md: 8px;
-        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-        --shadow-md: 0 2px 8px var(--pistachio-shadow);
-        --transition: all 0.3s ease;
-        
-        /* Bootstrap Overrides */
-        --bs-primary: var(--pistachio);
-        --bs-secondary: var(--dark-green);
-        --bs-success: var(--pistachio);
-        --bs-body-bg: var(--white);
-        --bs-body-color: var(--dark-gray);
-      }
-      
-      /* === 3. TYPOGRAPHY === */
-      h1, h2, h3, h4, h5, h6 {
-        color: var(--dark-gray);
-      }
-      
-      /* === 4. HEADER & FOOTER === */
-      header[data-bs-theme="dark"],
-      footer[data-bs-theme="dark"] {
-        background-color: var(--dark-gray) !important;
-      }
-      
-      header[data-bs-theme="dark"] .navbar-brand,
-      header[data-bs-theme="dark"] .nav-link,
-      footer[data-bs-theme="dark"],
-      footer[data-bs-theme="dark"] p {
-        color: var(--white) !important;
-      }
-      
-      header[data-bs-theme="dark"] .nav-link {
-        transition: var(--transition);
-      }
-      
-      header[data-bs-theme="dark"] .nav-link:hover,
-      footer[data-bs-theme="dark"] a {
-        color: var(--pistachio) !important;
-      }
-      
-      footer[data-bs-theme="dark"] a.text-light {
-        color: var(--white) !important;
-      }
-      
-      header[data-bs-theme="dark"] .nav-link.active {
-        background-color: var(--pistachio);
-        border: 2px solid var(--dark-green);
-        color: var(--white) !important;
-        border-radius: var(--radius-md);
-        padding: 0.5rem 1rem !important;
-      }
-      
-      /* === 5. BUTTONS === */
-      .btn {
-        border-radius: var(--radius-md);
-        border-width: 2px;
-        transition: var(--transition);
-      }
-      
-      /* Primary/Success Buttons */
-      .btn-primary,
-      .btn-success {
-        background-color: var(--pistachio) !important;
-        border-color: var(--dark-green) !important;
-        color: var(--white) !important;
-      }
-      
-      .btn-primary:hover,
-      .btn-success:hover {
-        background-color: var(--light-pistachio) !important;
-        border-color: var(--pistachio) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      /* Secondary/Outline Buttons */
-      .btn-outline-secondary,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close) {
-        background-color: var(--white) !important;
-        border-color: var(--dark-gray) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      .btn-outline-secondary:hover,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close):hover {
-        border-color: var(--caramel) !important;
-        background-color: var(--cream) !important;
-        box-shadow: var(--shadow-md);
-      }
-      
-      /* === 5. BUTTONS === */
-      .btn {
-        border-radius: var(--radius-md);
-        border-width: 2px;
-        transition: var(--transition);
-      }
-      
-      /* Primary/Success Buttons */
-      .btn-primary,
-      .btn-success {
-        background-color: var(--pistachio) !important;
-        border-color: var(--dark-green) !important;
-        color: var(--white) !important;
-      }
-      
-      .btn-primary:hover,
-      .btn-success:hover {
-        background-color: var(--light-pistachio) !important;
-        border-color: var(--pistachio) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      /* Secondary/Outline Buttons */
-      .btn-outline-secondary,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close) {
-        background-color: var(--white) !important;
-        border-color: var(--dark-gray) !important;
-        color: var(--dark-gray) !important;
-      }
-      
-      .btn-outline-secondary:hover,
-      .btn:not(.btn-primary):not(.btn-success):not(.btn-close):hover {
-        border-color: var(--caramel) !important;
-        background-color: var(--cream) !important;
-        box-shadow: var(--shadow-md);
-      }
-      
-      /* === 6. FORMS === */
-      .form-control {
-        border-radius: var(--radius-md);
-          box-shadow: none;
-        }
+    <link href="../assets/css/black-squirrel-theme.css" rel="stylesheet" />
+</head>
 
-        /* Text input focus: cream background, caramel border */
-        .form-control:focus {
-          background-color: var(--cream) !important;
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-        }
-
-        .form-control:focus {
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-      }
-      
-      .input-group .form-control {
-        border-radius: var(--radius-md) 0 0 var(--radius-md);
-        }
-
-        .input-group .form-control:focus {
-          background-color: var(--cream) !important;
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-        }
-
-        .input-group .form-control:focus {
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-      }
-      
-      .input-group .btn {
-        border-radius: 0 var(--radius-md) var(--radius-md) 0;
-        }
-
-        .btn:focus, .btn-primary:focus, .btn-success:focus, .btn-outline-secondary:focus {
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-      }
-      
-      /* === 7. INTERACTIVE CARDS === */
-      .interactive-card {
-        border: 2px solid var(--ash-gray);
-        border-radius: var(--radius-md);
-        padding: 1rem;
-        background-color: var(--white);
-        color: var(--dark-gray);
-        cursor: pointer;
-        transition: var(--transition);
-      }
-      
-      .interactive-card:hover {
-        border-color: var(--caramel);
-        background-color: var(--cream);
-        box-shadow: var(--shadow-md);
-      }
-      
-      .interactive-card.selected {
-        border-color: var(--dark-green);
-        background-color: var(--light-pistachio);
-        box-shadow: var(--shadow-md);
-      }
-      
-      /* === 8. ALERTS & NOTIFICATIONS === */
-      .alert-warning-custom {
-        border-left: 4px solid var(--caramel);
-        background-color: var(--caramel-light);
-        color: var(--dark-gray);
-        padding: 0.75rem;
-        border-radius: var(--radius-sm);
-        margin-bottom: 1rem;
-      }
-      
-      .status-good {
-        color: var(--pistachio);
-        font-weight: 600;
-      }
-      
-      .status-warning {
-        color: var(--cherry);
-        font-weight: 600;
-      }
-      
-      /* === 9. MODALS === */
-      .modal-content {
-        border-radius: var(--radius-md);
-      }
-      
-      /* === 10. PAGE-SPECIFIC STYLES === */
-      
-      /* Checkout Page - Override Bootstrap Primary Colors */
-      .text-primary {
-        color: var(--pistachio) !important;
-      }
-      
-      .bg-primary {
-        background-color: var(--pistachio) !important;
-      }
-      
-      .badge.bg-primary {
-        background-color: var(--pistachio) !important;
-        color: var(--white) !important;
-      }
-      
-      /* Override success/valid green colors */
-      .text-success {
-        color: var(--pistachio) !important;
-      }
-      
-      /* Radio button checked state */
-        .form-check-input:checked {
-          background-color: var(--pistachio) !important;
-          border-color: var(--dark-green) !important;
-          box-shadow: 0 0 0 0.25rem rgba(161, 255, 117, 0.25)!important;
-        }
-
-        .form-check-input:focus {
-          background-color: var(--pistachio) !important;
-          border-color: var(--dark-green) !important;
-          box-shadow: 0 0 0 0.25rem rgba(161, 255, 117, 0.25)!important;
-        }
-        
-        .form-check-input:hover {
-          background-color: var(--cream) !important;
-          border-color: var(--caramel) !important;
-          box-shadow: 0 0 0 0.25rem rgba(255, 214, 110, 0.25) !important;
-        }
-      
-      /* Form validation states */
-        /* --- FORM VALIDATION OVERRIDES --- */
-        /* Valid state: pistachio border, pistachio feedback, pistachio icon */
-        .form-control.is-valid,
-        .was-validated .form-control:valid {
-          border-color: var(--pistachio) !important;
-          background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%237A9951' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
-        }
-
-        .form-control.is-valid:focus,
-        .was-validated .form-control:valid:focus {
-          border-color: var(--pistachio) !important;
-          box-shadow: 0 0 0 0.25rem rgba(122, 153, 81, 0.25) !important;
-        }
-
-        .valid-feedback {
-          color: var(--pistachio) !important;
-        }
-
-        .form-check-input.is-valid,
-        .was-validated .form-check-input:valid {
-          border-color: var(--pistachio) !important;
-        }
-
-        .form-check-input.is-valid:focus,
-        .was-validated .form-check-input:valid:focus {
-          box-shadow: 0 0 0 0.25rem rgba(122, 153, 81, 0.25) !important;
-        }
-
-        /* Invalid state: cherry border, cherry feedback, cherry icon */
-        .form-control.is-invalid,
-        .was-validated .form-control:invalid {
-          border-color: var(--cherry) !important;
-          background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23E84B3C'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='%23E84B3C' stroke='none'/></svg>");
-        }
-
-        .form-control.is-invalid:focus,
-        .was-validated .form-control:invalid:focus {
-          border-color: var(--cherry) !important;
-          box-shadow: 0 0 0 0.25rem rgba(232, 75, 60, 0.25) !important;
-        }
-
-        .invalid-feedback {
-          color: var(--cherry) !important;
-        }
-
-        .form-check-input.is-invalid,
-        .was-validated .form-check-input:invalid {
-          border-color: var(--cherry) !important;
-        }
-
-        .form-check-input.is-invalid:focus,
-        .was-validated .form-check-input:invalid:focus {
-          box-shadow: 0 0 0 0.25rem rgba(232, 75, 60, 0.25) !important;
-        }
-      
-      /* === 11. UTILITIES === */
-      .navbar-icon {
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!--Navbar -->
-    <header data-bs-theme="dark">
+<!-- HEADER -->
+    <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../index.html">The Black Squirrel Cafe |</a>
+          <a class="navbar-brand">The Black Squirrel Cafe | </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -385,22 +33,20 @@
                 <a class="nav-link" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../dropdowns/menu.html">Menu</a>
+                <a class="nav-link" href="../menu/menu.html">Menu</a>
+              </li>
+                <a class="nav-link active" aria-current="page" href="#">Checkout</a>
+              <li class="nav-item">
+                <a class="nav-link" href="../rewards/rewards.html">Promotions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Checkout</a>
+                <a class="nav-link" href="../events/events.html">Events</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../carousel/rewards.html">Promotions</a>
+                <a class="nav-link" href="../about/about.html">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../events/index.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../about/index.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../location/index.html">Location</a>
+                <a class="nav-link" href="../location/location.html">Location</a>
               </li>
             </ul>
             <svg class="navbar-icon ms-auto" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet" fill="#FCFCFA">
@@ -414,7 +60,7 @@
       </nav>
     </header>
 
-        <!-- About Us Section -->
+        <!-- Checkout Section -->
         <div class="container marketing" style="padding-top: 80px;">
         <p class="lead mb-5"></p></p>
         <div class="row justify-content-center">
@@ -428,7 +74,7 @@
       <hr class="featurette-divider" />
     </div>
 
-    <main class="container" style="margin-top: 5rem;">
+    <main class="container" style="margin-top: 2rem;">
       <div class="row g-5">
         <!-- Cart summary -->
         <div class="col-md-5 col-lg-4 order-md-last">
@@ -681,15 +327,19 @@
       <hr class="featurette-divider" />
     </div>
 
-    <footer class="text-light mt-5 pt-4 pb-3" data-bs-theme="dark">
-      <div class="container">
-        <p class="float-end"><a href="#" class="text-light">Back to top</a></p>
-        <p>&copy; 2025 Black Squirrel Coffee</p>
-      </div>
-    </footer>
-    
+      <!-- FOOTER -->
+      <footer class="text-light mt-5 pt-4 pb-3">
+        <div class="container">
+          <p class="float-end"><a href="#" class="text-light">Back to top</a></p>
+          <p>&copy; 2025 Black Squirrel Coffee</p>
+        </div>
+      </footer>    
   
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="checkout.js"></script>
   </body>
 </html>
+
+
+
+

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,98 +14,20 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/carousel/"
     />
-    <script src="assets/js/color-modes.js"></script>
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet" />
     <meta name="theme-color" content="#712cf9" />
-    <link href="carousel/carousel.css" rel="stylesheet" />
+    <link href="assets/css/black-squirrel-theme.css" rel="stylesheet" />
+    
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -moz-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: #0000001a;
-        border: solid rgba(0, 0, 0, 0.15);
-        border-width: 1px 0;
-        box-shadow:
-          inset 0 0.5em 1.5em #0000001a,
-          inset 0 0.125em 0.5em #00000026;
-      }
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
-      }
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
-      .bd-mode-toggle {
-        z-index: 1500;
-      }
-      .bd-mode-toggle .bi {
-        width: 1em;
-        height: 1em;
-      }
-      .bd-mode-toggle .dropdown-menu .active .bi {
-        display: block !important;
-      }
-      .bd-placeholder-img {
-        object-fit: cover; /* keeps aspect ratio but fills circle */
-      }
-      .rounded-circle {
-        aspect-ratio: 1 / 1; /* ensures perfect circle even if image dimensions differ */
-        overflow: hidden;
-      }
-      #seasonal-heading{
-        margin-bottom: 60px;
-      }
-      #deals-heading{
-        margin-top: -100px;
-      }
+      /* Page-specific minimal tweaks */
+      #seasonal-heading { margin-bottom: 60px; }
+      #deals-heading { margin-top: -100px; }
+      .bd-placeholder-img { object-fit: cover; }
+      .rounded-circle { aspect-ratio: 1 / 1; overflow: hidden; }
     </style>
-  </head>
-  <body>
+  
+</head>
+  <body class="d-flex flex-column min-vh-100">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
@@ -131,78 +53,9 @@
         ></path>
       </symbol>
     </svg>
-    <div
-      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
-    >
-      <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-      >
-        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="dark"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="auto"
-            aria-pressed="true"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
+<!-- HEADER -->
     <header>
-      <nav class="navbar navbar-expand-md fixed-top">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand">The Black Squirrel Cafe | </a>
           <button
@@ -219,25 +72,31 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="dropdowns/menu.html">Menu</a>
+                <a class="nav-link" href="menu/menu.html">Menu</a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="checkout/index.html">Checkout</a></li>
+                <a class="nav-link" href="checkout/checkout.html">Checkout</a>
               <li class="nav-item">
-                <a class="nav-link" href="carousel/rewards.html">Promotions</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="carousel/events.html">Events</a>
+                <a class="nav-link" href="rewards/rewards.html">Promotions</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about/index.html">About Us</a>
+                <a class="nav-link" href="events/events.html">Events</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="location/index.html">Location</a>
+                <a class="nav-link" href="about/about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="location/location.html">Location</a>
               </li>
             </ul>
+            <svg class="navbar-icon ms-auto" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.000000 1024.000000" preserveAspectRatio="xMidYMid meet" fill="#FCFCFA">
+              <g transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)">
+                <path d="M5885 7604 c-252 -45 -442 -136 -606 -291 -128 -121 -233 -293 -281 -458 -20 -71 -23 -102 -22 -265 0 -180 1 -187 31 -277 46 -138 120 -262 293 -491 192 -255 231 -316 329 -512 106 -215 173 -424 206 -651 21 -138 16 -439 -9 -559 -19 -93 -57 -226 -91 -316 -103 -274 -352 -565 -582 -683 -48 -24 -49 -21 -29 37 8 22 22 101 32 174 35 274 -3 524 -117 765 -89 187 -254 392 -401 496 -82 59 -210 119 -303 143 -101 26 -294 24 -396 -4 -235 -63 -401 -229 -465 -462 -27 -97 -24 -326 5 -435 26 -96 75 -204 137 -297 84 -126 325 -362 467 -456 37 -25 67 -49 67 -53 0 -5 -187 -9 -415 -9 -393 0 -417 -1 -469 -20 -105 -40 -178 -140 -180 -245 l-1 -60 425 -5 425 -5 115 -42 c454 -165 973 -197 1411 -87 670 167 1188 632 1435 1287 49 129 83 261 111 425 25 148 25 522 0 667 -63 360 -201 701 -457 1125 -201 333 -241 476 -190 674 26 103 63 168 135 241 143 143 363 199 575 146 41 -11 76 -18 78 -16 9 8 -128 150 -207 215 -258 212 -555 321 -866 319 -60 0 -146 -7 -190 -15z"/>
+                <path d="M4590 7469 c-249 -65 -468 -262 -561 -505 l-24 -62 -63 -6 c-324 -34 -584 -187 -751 -446 -34 -52 -109 -189 -168 -304 l-105 -209 86 -83 c47 -46 107 -94 133 -107 320 -161 730 -38 936 280 24 38 60 102 79 143 61 126 138 146 200 53 25 -39 22 -95 -11 -191 -105 -302 -386 -557 -711 -647 -85 -24 -120 -28 -340 -35 -279 -8 -305 -15 -383 -93 -51 -51 -77 -116 -77 -194 l0 -53 226 0 c202 0 233 -2 296 -21 61 -19 86 -21 197 -16 69 3 180 15 246 27 242 44 486 36 674 -22 275 -85 534 -292 715 -571 80 -122 131 -236 191 -422 l52 -160 21 41 c11 22 32 81 46 130 78 272 83 555 16 819 -89 354 -243 615 -600 1020 -191 218 -253 303 -325 450 -77 157 -106 269 -113 436 -8 201 43 427 126 567 39 65 55 84 131 165 l35 37 -49 -1 c-28 0 -84 -9 -125 -20z m-710 -994 c0 -109 -62 -216 -156 -267 -64 -34 -158 -52 -229 -43 l-55 6 6 42 c19 135 80 234 177 283 52 27 77 32 170 33 l87 1 0 -55z"/>
+              </g>
+            </svg>
           </div>
         </div>
       </nav>
@@ -276,20 +135,16 @@
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
+              <rect width="100%" height="100%" fill="var(--ash-gray)"></rect>
             </svg>
             <div class="container">
               <div class="carousel-caption text-start">
                 <h1>Library location now open!</h1>
                 <p class="opacity-75">
-                  Stop by on 10/14 for first-day deals.
+                  Stop by on 12/14 for first-day deals.
                 </p>
                 <p>
-                  <a class="btn btn-lg btn-primary" href="location/index.html">Get directions now</a>
+                  <a class="btn btn-lg btn-primary" href="location/location.html">See our locations!</a>
                 </p>
               </div>
             </div>
@@ -303,19 +158,15 @@
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
+              <rect width="100%" height="100%" fill="var(--ash-gray)"></rect>
             </svg>
             <div class="container">
               <div class="carousel-caption">
-                <h1>Winter seasonal menu items begin 1/10.</h1>
+                <h1>Winter seasonal menu items begin 11/10.</h1>
                 <p>
                   Visit the menu to order fall seasonal items while they are still in store.
                 </p>
-                <p><a class="btn btn-lg btn-primary" href="dropdowns/menu.html">Menu</a></p>
+                <p><a class="btn btn-lg btn-primary" href="menu/menu.html">Menu</a></p>
               </div>
             </div>
           </div>
@@ -328,20 +179,16 @@
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect
-                width="100%"
-                height="100%"
-                fill="var(--bs-secondary-color)"
-              ></rect>
+              <rect width="100%" height="100%" fill="var(--ash-gray)"></rect>
             </svg>
             <div class="container">
-              <div class="carousel-caption text-start">
+              <div class="carousel-caption text-end">
                 <h1>Now hiring!</h1>
                 <p>
                   Visit us in person to apply!
                 </p>
                 <p>
-                  <a class="btn btn-lg btn-primary" href="location/index.html">Locations</a>
+                  <a class="btn btn-lg btn-primary" href="location/location.html">See our locations!</a>
                 </p>
               </div>
             </div>
@@ -387,7 +234,7 @@
               Now available through 1/1
             </p>
             <p>
-              <a class="btn btn-secondary" href="dropdowns/menu.html">View in Menu &raquo;</a>
+              <a class="btn btn-secondary" href="menu/menu.html">View in Menu &raquo;</a>
             </p>
           </div>
           <!-- /.col-lg-4 -->
@@ -405,7 +252,7 @@
               Now available through 11/29
             </p>
             <p>
-              <a class="btn btn-secondary" href="dropdowns/menu.html">View in Menu &raquo;</a>
+              <a class="btn btn-secondary" href="menu/menu.html">View in Menu &raquo;</a>
             </p>
           </div>
           <!-- /.col-lg-4 -->
@@ -423,7 +270,7 @@
               Now available through 11/29
             </p>
             <p>
-              <a class="btn btn-secondary" href="dropdowns/menu.html">View in Menu &raquo;</a>
+              <a class="btn btn-secondary" href="menu/menu.html">View in Menu &raquo;</a>
             </p>
           </div>
           <!-- /.col-lg-4 -->
@@ -439,7 +286,7 @@
             <p class="lead">
               Visit the promotions page to view current and upcoming deals.
             </p>
-            <a class="btn btn-secondary" href="carousel/rewards.html">Promotions &raquo;</a>
+            <a class="btn btn-secondary" href="rewards/rewards.html">Promotions &raquo;</a>
           </div>
         </div> 
         <hr class="featurette-divider" />
@@ -453,7 +300,9 @@
               Visitors from the North Pole will be at our Library Location on 12/21.
             </p>
             <p>Visit the events page for more details</p>
-            <a class="btn btn-secondary" href="carousel/events.html">Events &raquo;</a>
+            <div class="text-center">
+              <a class="btn btn-secondary" href="events/events.html">Events &raquo;</a>
+            </div>
           </div>
           <div class="col-md-5">
             <svg
@@ -481,15 +330,16 @@
         <!-- /END THE FEATURETTES -->
       </div>
       <!-- /.container -->
-      <!-- FOOTER -->
-      <footer class="container">
-        <p class="float-end"><a href="#">Back to top</a></p>
-        <p>
-          &copy; 2025 The Black Squirrel Cafe &middot;
-          <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-        </p>
-      </footer>
     </main>
+
+      <!-- FOOTER -->
+      <footer class="text-light mt-5 pt-4 pb-3">
+        <div class="container">
+          <p class="float-end"><a href="#" class="text-light">Back to top</a></p>
+          <p>&copy; 2025 Black Squirrel Coffee</p>
+        </div>
+      </footer>    
+
     <script
       src="assets/dist/js/bootstrap.bundle.min.js"
       class="astro-vvvwv3sm"></script>
